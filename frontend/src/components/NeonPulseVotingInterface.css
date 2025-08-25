@@ -1,0 +1,316 @@
+/* Neon Pulse Voting Interface Styles */
+
+/* Global voting container overrides */
+.voting-header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: rgba(255, 0, 255, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 0, 255, 0.3);
+  animation: neon-pulse-header 3s ease-in-out infinite;
+}
+
+@keyframes neon-pulse-header {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+    border-color: #ff00ff;
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+    border-color: #00ffff;
+  }
+}
+
+.voting-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: neon-title-flow 2s ease-in-out infinite;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0 0 10px 0;
+  font-family: 'Courier New', monospace;
+}
+
+@keyframes neon-title-flow {
+  0%, 100% { 
+    background-position: 0% 50%;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+  }
+  50% { 
+    background-position: 100% 50%;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+  }
+}
+
+.voting-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  margin: 0;
+  font-style: italic;
+  letter-spacing: 1px;
+  animation: subtitle-glow 4s ease-in-out infinite;
+}
+
+@keyframes subtitle-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+  }
+}
+
+/* Override voting card styles for neon pulse theme */
+.voting-card-override {
+  background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460) !important;
+  border: 2px solid #ff00ff !important;
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.3) !important;
+  animation: voting-card-pulse 4s ease-in-out infinite !important;
+}
+
+@keyframes voting-card-pulse {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.3) !important;
+    border-color: #ff00ff !important;
+  }
+  25% {
+    box-shadow: 0 0 40px rgba(255, 51, 255, 0.4) !important;
+    border-color: #ff33ff !important;
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.5) !important;
+    border-color: #00ffff !important;
+  }
+  75% {
+    box-shadow: 0 0 40px rgba(255, 102, 255, 0.4) !important;
+    border-color: #ff66ff !important;
+  }
+}
+
+/* Override voting topic styles */
+.voting-topic-override {
+  background: rgba(255, 0, 255, 0.2) !important;
+  border: 2px solid #ff00ff !important;
+  color: #ffffff !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
+  animation: topic-neon-glow 3s ease-in-out infinite !important;
+}
+
+@keyframes topic-neon-glow {
+  0%, 100% {
+    border-color: #ff00ff !important;
+    box-shadow: inset 0 0 15px rgba(255, 0, 255, 0.3) !important;
+  }
+  50% {
+    border-color: #00ffff !important;
+    box-shadow: inset 0 0 25px rgba(0, 255, 255, 0.5) !important;
+  }
+}
+
+/* Neon pulse specific animations */
+.neon-voting-glow {
+  animation: neon-voting-glow 2s ease-in-out infinite;
+}
+
+@keyframes neon-voting-glow {
+  0%, 100% {
+    filter: brightness(1) hue-rotate(0deg);
+  }
+  25% {
+    filter: brightness(1.1) hue-rotate(45deg);
+  }
+  50% {
+    filter: brightness(1.2) hue-rotate(90deg);
+  }
+  75% {
+    filter: brightness(1.1) hue-rotate(135deg);
+  }
+}
+
+/* Phase indicator special effects */
+.phase-indicator-neon {
+  position: relative;
+  overflow: hidden;
+}
+
+.phase-indicator-neon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.3), transparent);
+  animation: phase-sweep 3s infinite;
+}
+
+@keyframes phase-sweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Vote button neon enhancements */
+.neon-vote-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-vote-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transition: all 0.5s ease;
+  transform: translate(-50%, -50%);
+}
+
+.neon-vote-button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Statistics enhancement */
+.neon-stats-glow {
+  animation: stats-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes stats-pulse {
+  0%, 100% {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    background: rgba(255, 0, 255, 0.1);
+    border-color: rgba(255, 0, 255, 0.5);
+  }
+}
+
+/* Warning message neon styling */
+.neon-warning-success {
+  background: rgba(40, 167, 69, 0.15) !important;
+  border: 2px solid rgba(40, 167, 69, 0.6) !important;
+  color: #28a745 !important;
+  text-shadow: 0 0 10px rgba(40, 167, 69, 0.8) !important;
+  animation: success-glow 2s ease-in-out infinite !important;
+}
+
+@keyframes success-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(40, 167, 69, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(40, 167, 69, 0.5);
+  }
+}
+
+.neon-warning-info {
+  background: rgba(0, 255, 255, 0.15) !important;
+  border: 2px solid rgba(0, 255, 255, 0.6) !important;
+  color: #00ffff !important;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8) !important;
+  animation: info-glow 2s ease-in-out infinite !important;
+}
+
+@keyframes info-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+  }
+}
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+  .voting-title {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+  
+  .voting-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .voting-header {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .voting-topic-override {
+    font-size: 1.1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .voting-title {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+  
+  .voting-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .voting-header {
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+}
+
+/* Additional neon pulse effects */
+.neon-pulse-sparkle {
+  position: relative;
+}
+
+.neon-pulse-sparkle::before {
+  content: '✨';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  animation: sparkle-rotate 2s linear infinite;
+  font-size: 1.2rem;
+}
+
+@keyframes sparkle-rotate {
+  0% { transform: rotate(0deg) scale(1); opacity: 1; }
+  50% { transform: rotate(180deg) scale(1.2); opacity: 0.7; }
+  100% { transform: rotate(360deg) scale(1); opacity: 1; }
+}
+
+/* Energy wave effect */
+.neon-energy-wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-energy-wave::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 0, 255, 0.2), 
+    rgba(0, 255, 255, 0.2), 
+    transparent
+  );
+  animation: energy-wave 4s infinite;
+}
+
+@keyframes energy-wave {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}

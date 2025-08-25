@@ -1,0 +1,325 @@
+/* Neon Pulse Counter Card Styles */
+.neon-pulse-card {
+  background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+  border: 2px solid #ff00ff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+.neon-pulse-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
+  border-radius: 20px;
+  z-index: -1;
+  animation: neon-border-flow 3s linear infinite;
+}
+
+@keyframes neon-border-flow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.neon-pulse-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: neon-text-flow 2s ease-in-out infinite;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+  text-align: center;
+}
+
+@keyframes neon-text-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.pulse-level-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(255, 0, 255, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 0, 255, 0.3);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+}
+
+.energy-display {
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid #00ffff;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 15px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: energy-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes energy-pulse {
+  0%, 100% { 
+    border-color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  }
+  50% { 
+    border-color: #ff00ff;
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.5);
+  }
+}
+
+.energy-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+  font-family: 'Courier New', monospace;
+  animation: value-flicker 0.8s ease-in-out infinite;
+}
+
+@keyframes value-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.neon-input {
+  background: rgba(255, 0, 255, 0.1);
+  border: 2px solid #ff00ff;
+  border-radius: 10px;
+  padding: 12px;
+  color: #ffffff;
+  font-size: 1rem;
+  flex: 1;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+}
+
+.neon-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.neon-input:focus {
+  outline: none;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+  border-color: #00ffff;
+  animation: input-glow 1s ease-in-out infinite;
+}
+
+@keyframes input-glow {
+  0%, 100% { 
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+  }
+  50% { 
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+  }
+}
+
+.action-button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+.action-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.action-button:hover::before {
+  left: 100%;
+}
+
+.action-button.activate {
+  background: linear-gradient(45deg, #ff00ff, #ff3399);
+  color: white;
+  border: 2px solid #ff00ff;
+}
+
+.action-button.activate:hover {
+  animation: ultra-glow 1s ease-in-out infinite;
+  transform: translateY(-3px);
+}
+
+.action-button.supercharge {
+  background: linear-gradient(45deg, #00ffff, #0099ff);
+  color: white;
+  border: 2px solid #00ffff;
+}
+
+.action-button.supercharge:hover {
+  animation: ultra-glow 0.8s ease-in-out infinite;
+  transform: translateY(-3px);
+}
+
+.action-button.drain {
+  background: linear-gradient(45deg, #ff6600, #ff3300);
+  color: white;
+  border: 2px solid #ff6600;
+}
+
+.action-button.drain:hover {
+  animation: ultra-glow 1.2s ease-in-out infinite;
+  transform: translateY(-3px);
+}
+
+.action-button.emergency {
+  background: linear-gradient(45deg, #ff0000, #990000);
+  color: white;
+  border: 2px solid #ff0000;
+}
+
+.action-button.emergency:hover {
+  animation: emergency-pulse 0.5s ease-in-out infinite;
+  transform: translateY(-3px);
+}
+
+@keyframes ultra-glow {
+  0%, 100% { 
+    filter: hue-rotate(0deg) brightness(1);
+    box-shadow: 0 0 15px currentColor;
+  }
+  25% { 
+    filter: hue-rotate(90deg) brightness(1.2);
+    box-shadow: 0 0 25px currentColor;
+  }
+  50% { 
+    filter: hue-rotate(180deg) brightness(1.4);
+    box-shadow: 0 0 35px currentColor;
+  }
+  75% { 
+    filter: hue-rotate(270deg) brightness(1.2);
+    box-shadow: 0 0 25px currentColor;
+  }
+}
+
+@keyframes emergency-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 10px #ff0000;
+  }
+  50% { 
+    box-shadow: 0 0 30px #ff0000;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  background: rgba(255, 0, 255, 0.1);
+  border-color: rgba(255, 0, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff;
+  font-family: 'Courier New', monospace;
+}
+
+.neon-info {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(255, 0, 255, 0.1);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  border: 1px solid rgba(255, 0, 255, 0.3);
+}
+
+/* Loading animations */
+.loading-pulse {
+  animation: loading-pulse 1s ease-in-out infinite;
+}
+
+@keyframes loading-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .neon-pulse-card {
+    padding: 20px;
+  }
+  
+  .neon-pulse-title {
+    font-size: 1.5rem;
+  }
+  
+  .energy-value {
+    font-size: 2rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-button {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
